@@ -22,6 +22,6 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Text="Автомобили" />
-        <local1:AllCars Grid.Row="1" />
+        <local1:AllCars Grid.Row="1" DataContext="{Binding AllCarsVM}" />
     </Grid>
 </Window>

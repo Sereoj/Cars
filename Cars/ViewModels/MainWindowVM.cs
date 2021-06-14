@@ -9,11 +9,11 @@ namespace Cars.ViewModels
 {
     public class MainWindowVM : ViewModel
     {
-
+        public AllCarsVM AllCarsVM { get; set; }
         public MainWindowVM()
         {
-            AllCarsVM allCarsVM = new AllCarsVM(new Models.ModelInstance());
-            allCarsVM.CreateInformation();
+            AllCarsVM = new AllCarsVM(new Models.ModelInstance());
+            AllCarsVM.CreateInformation();
         }
     }
 }

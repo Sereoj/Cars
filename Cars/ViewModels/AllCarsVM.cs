@@ -1,10 +1,4 @@
 ﻿using Cars.Models;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Test.ViewModels.Base;
 
 namespace Cars.ViewModels
@@ -15,7 +9,11 @@ namespace Cars.ViewModels
         public string Information
         {
             get => _information;
-            set => Set(ref _information, value);
+            set
+            {
+                _information = value;
+                OnPropertyChanged();
+            }
         }
 
         public void CreateInformation()
@@ -26,10 +24,20 @@ namespace Cars.ViewModels
         }
         public AllCarsVM(ModelInstance model)
         {
-            this.model = model;
+            /**
+             * В MainWindowVM такой код.
+             *public MainWindowVM()
+             *AllCarsVM allCarsVM = new AllCarsVM(new Models.ModelInstance());
+             *allCarsVM.CreateInformation();
+             * 
+             */
+            this.model = model; // здесь есть значения
+            Information = "Работает 2";
+
         }
         public AllCarsVM()
         {
+            Information = "Работает 1";
         }
 
         private readonly ModelInstance model;
